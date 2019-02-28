@@ -1,27 +1,19 @@
 import React from "react";
+import styles from "./styles.module.scss";
 
 const Header = () => {
   return (
-    <header>
+    <header className={styles.header}>
       <nav>
         <ul>
           <li>
-            <a href="/">lorem</a>
+            <a href="/">new</a>
           </li>
           <li>
-            <a href="/">lorem</a>
+            <a href="/">past</a>
           </li>
           <li>
-            <a href="/">lorem</a>
-          </li>
-          <li>
-            <a href="/">lorem</a>
-          </li>
-          <li>
-            <a href="/">lorem</a>
-          </li>
-          <li>
-            <a href="/">lorem</a>
+            <a href="/">comments</a>
           </li>
           <li>
             <a href="/">login</a>
