@@ -1,5 +1,39 @@
 .header {
+  padding: 0.25rem 1rem;
+  background-color: var(--color-primary);
+  color: #000;
+
   ul {
     list-style: none;
+    display: flex;
+    font-size: 1.5rem;
+
+    li {
+      padding: 0.5rem 1rem;
+      position: relative;
+      &:after {
+        content: "|";
+        position: absolute;
+        top: 0.6rem;
+        right: -0.2rem;
+      }
+
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.logo {
+  background-image: url("./hn_logo.jpg");
+  background-repeat: no-repeat;
+  background-size: 28%;
+  background-position-y: center;
+
+  a {
+    margin-left: 4rem;
+    font-weight: bold;
   }
 }

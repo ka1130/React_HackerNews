@@ -6,6 +6,9 @@ const Header = () => {
     <header className={styles.header}>
       <nav>
         <ul>
+          <li className={styles.logo}>
+            <a href="/">Hacker News</a>
+          </li>
           <li>
             <a href="/">new</a>
           </li>

@@ -1,3 +1,7 @@
+:root {
+  --color-primary: #ff6600;
+}
+
 *,
 *::before,
 *::after {
