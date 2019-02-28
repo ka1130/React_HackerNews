@@ -1,13 +1,17 @@
 import React from "react";
-import Header from "components/Header";
 import { BrowserRouter, Route } from "react-router-dom";
+
+import Header from "components/Header";
+import News from "components/News";
+
+import styles from "./App.module.scss";
 
 const App = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <Header />
       <BrowserRouter>
-        <h1>app</h1>
+        <Route path="/" component={News} />
       </BrowserRouter>
     </div>
   );

@@ -11,11 +11,15 @@
     li {
       padding: 0.5rem 1rem;
       position: relative;
-      &:after {
+      &:not(:last-child)::after {
         content: "|";
         position: absolute;
         top: 0.6rem;
         right: -0.2rem;
+      }
+
+      &:last-child {
+        margin-left: auto;
       }
 
       a {
