@@ -52,7 +52,12 @@ class Story extends Component {
 
   render() {
     console.log(this.state.story);
-    return <li className={styles.story}>{this.renderStory()}</li>;
+    return (
+      <li className={styles.story}>
+        <button className={styles.upvote} />
+        {this.renderStory()}
+      </li>
+    );
   }
 }
 
