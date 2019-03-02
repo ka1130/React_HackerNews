@@ -34,13 +34,25 @@ class Story extends Component {
     }
   }
 
+  renderStory() {
+    const { story } = this.state;
+    if (story) {
+      return (
+        <a
+          href={story.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.storyLink}
+        >
+          {story.title}
+        </a>
+      );
+    }
+  }
+
   render() {
     console.log(this.state.story);
-    return (
-      <li className={styles.story}>
-        {this.state.story ? this.state.story.title : ""}
-      </li>
-    );
+    return <li className={styles.story}>{this.renderStory()}</li>;
   }
 }
 
