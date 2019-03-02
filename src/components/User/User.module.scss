@@ -1,3 +1,11 @@
 .userWrapper {
-  color: blue;
+  background-color: var(--color-beige);
+  color: var(--color-grey-light);
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.75;
+}
+
+.date {
+  color: #000;
 }

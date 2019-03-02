@@ -25,10 +25,10 @@ class Story extends Component {
   fetchStory = async id => {
     const response = await hackernews.get(`/item/${id}.json`);
     this.setState({ story: response.data });
-    return response.data;
+    // return response.data;
   };
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (prevProps.storyId !== this.props.storyId) {
       const story = this.fetchStory(this.state.storyId);
       this.setState({ story });
@@ -47,17 +47,17 @@ class Story extends Component {
             rel="noopener noreferrer"
             className={styles.storyLink}
           >
-            <span className={styles.storyTitle}>{story.title}</span>
-            <p className={styles.storyInfo}>
-              <span>{story.score} points | </span>
-              <span>
-                by <Link to={`/user/${story.by}`}>{story.by}</Link> |{" "}
-              </span>
-              <span>1 day ago | </span>
-              <a href="/">{story.kids ? story.kids.length : "0"} comments</a>
-              {/* this will be a link */}
-            </p>
+            {story.title}
           </a>
+          <p className={styles.storyInfo}>
+            <span>{story.score} points | </span>
+            <span>
+              by <Link to={`/user/${story.by}`}>{story.by}</Link> |{" "}
+            </span>
+            <span>1 day ago | </span>
+            <a href="/">{story.kids ? story.kids.length : "0"} comments</a>
+            {/* this will be a link */}
+          </p>
         </>
       );
     }
