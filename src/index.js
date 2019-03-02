@@ -6,7 +6,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import store from "redux/store";
 
 import Header from "components/Header";
-import News from "components/News";
+import Stories from "components/Stories";
 
 import "./index.css";
 
@@ -15,7 +15,7 @@ ReactDOM.render(
     <>
       <Header />
       <BrowserRouter>
-        <Route path="/" component={News} />
+        <Route path="/" component={Stories} />
       </BrowserRouter>
     </>
   </Provider>,
