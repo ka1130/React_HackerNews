@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { fetchStory } from "redux/actions";
 import hackernews from "api/hackernews";
 
+import styles from "./Story.module.scss";
+
 class Story extends Component {
   state = { storyId: "", story: null };
 
@@ -23,8 +25,6 @@ class Story extends Component {
 
   fetchStory = async id => {
     const response = await hackernews.get(`/item/${id}.json`);
-    console.log(response);
-
     this.setState({ story: response.data });
     return response.data;
   };
@@ -37,8 +37,11 @@ class Story extends Component {
   }
 
   render() {
-    console.log(this.state);
-    return <div>{this.state.story ? this.state.story.title : ""}</div>;
+    return (
+      <li className={styles.story}>
+        {this.state.story ? this.state.story.title : ""}
+      </li>
+    );
   }
 }
 

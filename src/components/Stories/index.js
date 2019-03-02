@@ -5,6 +5,8 @@ import { fetchStories } from "redux/actions";
 
 import Story from "components/Stories/Story";
 
+import styles from "./Stories.module.scss";
+
 class Stories extends Component {
   componentDidMount() {
     this.props.fetchStories();
@@ -12,7 +14,7 @@ class Stories extends Component {
 
   render() {
     return (
-      <ol>
+      <ol className={styles.storiesWrapper}>
         {this.props.stories.slice(1, 10).map(storyId => (
           <Story key={uuidv4()} storyId={storyId} />
         ))}
