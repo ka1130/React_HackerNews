@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import hackernews from "api/hackernews";
 
 import styles from "./Story.module.scss";
@@ -50,7 +51,7 @@ class Story extends Component {
             <p className={styles.storyInfo}>
               <span>{story.score} points | </span>
               <span>
-                by <a href="/">{story.by}</a> |{" "}
+                by <Link to={`/user/${story.by}`}>{story.by}</Link> |{" "}
               </span>
               <span>1 day ago | </span>
               <a href="/">{story.kids ? story.kids.length : "0"} comments</a>
