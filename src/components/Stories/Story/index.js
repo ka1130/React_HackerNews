@@ -48,10 +48,13 @@ class Story extends Component {
           >
             <span className={styles.storyTitle}>{story.title}</span>
             <p className={styles.storyInfo}>
-              <span>352 points | </span>
-              <span>by whoishiring | </span>
+              <span>{story.score} points | </span>
+              <span>
+                by <a href="/">{story.by}</a> |{" "}
+              </span>
               <span>1 day ago | </span>
-              <span>604 comments</span>
+              <a href="/">{story.kids ? story.kids.length : "0"} comments</a>
+              {/* this will be a link */}
             </p>
           </a>
         </>
