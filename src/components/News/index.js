@@ -1,7 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchStories } from "redux/actions";
 
-const News = () => {
-  return <div>News</div>;
-};
+class News extends Component {
+  componentDidMount() {
+    this.props.fetchStories();
+  }
 
-export default News;
+  render() {
+    return <div>News</div>;
+  }
+}
+
+export default connect(
+  null,
+  { fetchStories }
+)(News);
