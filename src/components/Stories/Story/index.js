@@ -38,26 +38,30 @@ class Story extends Component {
     const { story } = this.state;
     if (story) {
       return (
-        <a
-          href={story.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.storyLink}
-        >
-          {story.title}
-        </a>
+        <>
+          <button className={styles.upvote} />
+          <a
+            href={story.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.storyLink}
+          >
+            <span className={styles.storyTitle}>{story.title}</span>
+            <p className={styles.storyInfo}>
+              <span>352 points | </span>
+              <span>by whoishiring | </span>
+              <span>1 day ago | </span>
+              <span>604 comments</span>
+            </p>
+          </a>
+        </>
       );
     }
   }
 
   render() {
     console.log(this.state.story);
-    return (
-      <li className={styles.story}>
-        <button className={styles.upvote} />
-        {this.renderStory()}
-      </li>
-    );
+    return <li className={styles.story}>{this.renderStory()}</li>;
   }
 }
 
