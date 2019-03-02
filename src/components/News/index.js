@@ -12,6 +12,8 @@ class News extends Component {
   }
 }
 
+const mapStateToProps = state => ({ stories: state.stories });
+
 export default connect(
   null,
   { fetchStories }

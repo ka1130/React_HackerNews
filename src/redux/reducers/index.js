@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import { firebaseReducer } from "react-redux-firebase";
-import topstoriesReducer from "redux/reducers/topstoriesReducer";
+import storiesReducer from "redux/reducers/storiesReducer";
 
 const rootReducer = combineReducers({
   firebase: firebaseReducer,
-  topstories: topstoriesReducer
+  stories: storiesReducer
 });
 
 export default rootReducer;

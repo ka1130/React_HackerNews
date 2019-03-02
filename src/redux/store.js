@@ -1,7 +1,9 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
+import logger from "redux-logger";
 import rootReducer from "redux/reducers";
 
+/*
 import { reactReduxFirebase } from "react-redux-firebase";
 import firebase from "firebase/app";
 
@@ -27,6 +29,14 @@ const createStoreWithFirebase = compose(reactReduxFirebase(firebase, config))(
 );
 
 // Create store with reducers and initial state
-const store = createStoreWithFirebase(rootReducer, applyMiddleware(thunk));
+// const store = createStoreWithFirebase(rootReducer, applyMiddleware(thunk));
+*/
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk, logger))
+);
 
 export default store;
