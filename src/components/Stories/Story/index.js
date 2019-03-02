@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { fetchStory } from "redux/actions";
 import hackernews from "api/hackernews";
 
 import styles from "./Story.module.scss";
@@ -37,6 +35,7 @@ class Story extends Component {
   }
 
   render() {
+    console.log(this.state.story);
     return (
       <li className={styles.story}>
         {this.state.story ? this.state.story.title : ""}
@@ -45,7 +44,4 @@ class Story extends Component {
   }
 }
 
-export default connect(
-  null,
-  { fetchStory }
-)(Story);
+export default Story;
