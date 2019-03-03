@@ -15,8 +15,9 @@ class Stories extends Component {
   render() {
     return (
       <ol className={styles.storiesWrapper}>
-        {this.props.stories.slice(1, 10).map(storyId => (
+        {this.props.stories.map(storyId => (
           <Story key={uuidv4()} storyId={storyId} />
+          // restrict amount of stories and add 'more' button
         ))}
       </ol>
     );

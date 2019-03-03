@@ -5,6 +5,8 @@ import hackernews from "api/hackernews";
 import styles from "./Story.module.scss";
 
 class Story extends Component {
+  _isMounted = false;
+
   state = { storyId: "", story: null };
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -16,16 +18,20 @@ class Story extends Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
+    const story = this.fetchStory(this.state.storyId);
+
     if (this.state.storyId !== "") {
-      const story = this.fetchStory(this.state.storyId);
       this.setState({ story });
     }
   }
 
   fetchStory = async id => {
     const response = await hackernews.get(`/item/${id}.json`);
-    this.setState({ story: response.data });
-    // return response.data;
+
+    if (this._isMounted) {
+      this.setState({ story: response.data });
+    }
   };
 
   componentDidUpdate(prevProps) {
@@ -33,6 +39,10 @@ class Story extends Component {
       const story = this.fetchStory(this.state.storyId);
       this.setState({ story });
     }
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   renderStory() {
@@ -56,7 +66,6 @@ class Story extends Component {
             </span>
             <span>1 day ago | </span>
             <a href="/">{story.kids ? story.kids.length : "0"} comments</a>
-            {/* this will be a link */}
           </p>
         </>
       );
@@ -64,7 +73,6 @@ class Story extends Component {
   }
 
   render() {
-    console.log(this.state.story);
     return <li className={styles.story}>{this.renderStory()}</li>;
   }
 }

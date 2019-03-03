@@ -2,10 +2,25 @@
   background-color: var(--color-beige);
   color: var(--color-grey-light);
   padding: 1.5rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 1.75;
+}
+
+.firstCol {
+  width: 8rem;
+  display: inline-block;
 }
 
 .date {
   color: #000;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8rem;
+
+  a {
+    color: #000;
+  }
 }
