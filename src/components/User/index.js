@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import moment from "moment";
 import hackernews from "api/hackernews";
 
 import styles from "./User.module.scss";
@@ -33,6 +34,7 @@ class User extends Component {
 
   render() {
     console.log(this.state.user);
+    // console.log(<TimeAgo)
     if (this.state.user) {
       return (
         <section className={styles.userWrapper}>
@@ -42,7 +44,7 @@ class User extends Component {
           </p>
           <p>
             <span className={styles.firstCol}>created: </span>
-            <span className={styles.date}>{this.state.user.created}</span>
+            <span className={styles.date}>{moment(1393605342).fromNow()}</span>
           </p>
           <p>
             <span className={styles.firstCol}>karma: </span>
