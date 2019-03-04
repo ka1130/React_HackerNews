@@ -10,14 +10,17 @@ const Story = props => {
   const [storyId] = useState(props.storyId);
   const [story, setStory] = useState(null);
 
+  const fetchStory = async id => {
+    const response = await hackernews.get(`/item/${id}.json`);
+    setStory(response.data);
+  };
+
   useEffect(() => {
-    (async id => {
-      const response = await hackernews.get(`/item/${id}.json`);
-      setStory(response.data);
-    })(storyId);
+    fetchStory(storyId);
   }, [story]);
 
   if (story) {
+    console.log(story.time);
     return (
       <li className={styles.story}>
         <button className={styles.upvote} />
