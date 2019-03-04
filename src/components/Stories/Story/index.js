@@ -17,7 +17,7 @@ const Story = props => {
 
   useEffect(() => {
     fetchStory(storyId);
-  }, [story]);
+  }, []);
 
   if (story) {
     console.log(story.time);
