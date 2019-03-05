@@ -44,6 +44,7 @@ class User extends Component {
           </p>
           <p>
             <span className={styles.firstCol}>created: </span>
+
             <span className={styles.date}>{moment(1393605342).fromNow()}</span>
           </p>
           <p>

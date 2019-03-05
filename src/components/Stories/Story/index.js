@@ -20,7 +20,6 @@ const Story = props => {
   }, []);
 
   if (story) {
-    console.log(story.time);
     return (
       <li className={styles.story}>
         <button className={styles.upvote} />
@@ -37,7 +36,7 @@ const Story = props => {
           <span>
             by <Link to={`/user/${story.by}`}>{story.by}</Link> |{" "}
           </span>
-          <span>{moment(1173923446).fromNow()}</span>
+          <span>{moment.unix(story.time).fromNow()}</span>
           <a href="/"> {story.kids ? story.kids.length : "0"} comments</a>
         </p>
       </li>
