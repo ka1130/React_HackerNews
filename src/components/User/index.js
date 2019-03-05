@@ -33,9 +33,8 @@ class User extends Component {
   };
 
   render() {
-    console.log(this.state.user);
-    // console.log(<TimeAgo)
-    if (this.state.user) {
+    const { user } = this.state;
+    if (user) {
       return (
         <section className={styles.userWrapper}>
           <p>
@@ -44,16 +43,17 @@ class User extends Component {
           </p>
           <p>
             <span className={styles.firstCol}>created: </span>
-
-            <span className={styles.date}>{moment(1393605342).fromNow()}</span>
+            <span className={styles.date}>
+              {moment.unix(user.created).fromNow()}
+            </span>
           </p>
           <p>
             <span className={styles.firstCol}>karma: </span>
-            <span>{this.state.user.karma}</span>
+            <span>{user.karma}</span>
           </p>
           <p>
             <span className={styles.firstCol}>about: </span>
-            <span>{this.state.user.about}</span>
+            <span>{user.about}</span>
           </p>
           <div className={styles.links}>
             <Link to="/">submissions</Link>
